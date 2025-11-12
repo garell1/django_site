@@ -3,10 +3,28 @@ from django.shortcuts import render
 
 def starting_pager(request):
     meetups = [
-        {'title': "A First meetup"},
-        {'title': "A Second meetup"}
+        {
+            'title': "A First meetup", 
+            'location': 'New Your', 
+            'slug': 'a-first-meetup'
+        },
+        {
+            'title': "A Second meetup", 
+            'location': 'Paris', 
+            'slug': 'a-second-meetup'
+        }
     ]
     return render(request,'meetups/index.html',{
-        'show'
+        'show_meetups': True,
         'meetups': meetups
+    })
+
+def meetup_details(request):
+    selected_meetup = {
+        'title': 'A First Meetup', 
+        'description': 'This is first meetup'
+        }
+    return render(request, 'meetups/meetup_detail.html', {
+        'meetup_title': selected_meetup['title'],
+        'meetup_description': selected_meetup['description'],
     })
