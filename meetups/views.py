@@ -19,7 +19,8 @@ def starting_pager(request):
         'meetups': meetups
     })
 
-def meetup_details(request):
+def meetup_details(request, meetup_slug):
+    print(meetup_slug)
     selected_meetup = {
         'title': 'A First Meetup', 
         'description': 'This is first meetup'
